@@ -61,6 +61,19 @@ button:hover{
     background-color:#125ca1;
 }
 
+footer{
+    margin-top:40px;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+footer hr{
+    margin-bottom:15px;
+    border:0;
+    border-top:1px solid #ddd;
+}
+
 </style>
 
 </head>
@@ -68,7 +81,7 @@ button:hover{
 
 <div class="container">
 
-<h2>Task auswählen</h2>
+<h2>📋 Task auswählen</h2>
 
 <%
 TaskListBean taskList = (TaskListBean) request.getAttribute("taskList");
@@ -103,6 +116,12 @@ for(TaskBean task : list){
 </form>
 
 </div>
+
+<footer>
+    <hr>
+    <p>CRMFormular_Sprint1 © 2026</p>
+    <p>Java • JSP • Servlet • JavaBean</p>
+</footer>
 
 </body>
 </html>

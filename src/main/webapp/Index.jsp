@@ -48,7 +48,18 @@ button{
 button:hover{
     background:#125ca1;
 }
+footer{
+    margin-top:40px;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
 
+footer hr{
+    margin-bottom:15px;
+    border:0;
+    border-top:1px solid #ddd;
+}
 </style>
 
 </head>
@@ -56,7 +67,7 @@ button:hover{
 
 <div class="container">
 
-<h1>CRM Formular</h1>
+<h1>💼 CRM Formular</h1>
 
 <p>Willkommen zum CRM-Projekt</p>
 
@@ -68,7 +79,20 @@ Task-Liste anzeigen
 
 </form>
 
+<hr>
+
+<footer>
+    <p>CRMFormular_Sprint1 © 2026</p>
+    <p>Java • JSP • Servlet • JavaBean</p>
+</footer>
+
 </div>
+
+<footer>
+    <hr>
+    <p>CRMFormular_Sprint1 © 2026</p>
+    <p>Java • JSP • Servlet • JavaBean</p>
+</footer>
 
 </body>
 </html>

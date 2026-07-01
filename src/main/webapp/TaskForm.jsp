@@ -60,6 +60,25 @@ button:hover{
     background:#125ca1;
 }
 
+footer{
+    margin-top:40px;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+footer hr{
+    margin-bottom:15px;
+    border:0;
+    border-top:1px solid #ddd;
+}
+
+h3{
+    color:#1976D2;
+    text-align:center;
+    margin-top:20px;
+}
+
 </style>
 
 </head>
@@ -67,13 +86,15 @@ button:hover{
 
 <div class="container">
 
-<h2>Task bearbeiten</h2>
+<h2>📝 Task bearbeiten</h2>
 
 <%
 String task = (String) request.getAttribute("task");
 %>
 
-<label>Gewählte Task-ID</label>
+<h3>✅ Ausgewählte Task</h3>
+
+<label>Task-ID</label>
 
 <input type="text"
        value="<%=task%>"
@@ -86,8 +107,20 @@ Zurück zur Task-Liste
 </button>
 
 </form>
+<form action="index.jsp">
 
+    <button type="submit">
+        🏠 Startseite
+    </button>
+
+</form>
 </div>
+
+<footer>
+    <hr>
+    <p>CRMFormular_Sprint1 © 2026</p>
+    <p>Java • JSP • Servlet • JavaBean</p>
+</footer>
 
 </body>
 </html>
