@@ -143,5 +143,5 @@ Alle Seiten besitzen:
 - [x] Validierung der Eingaben
 
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_1.png
-Result:
+Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_2.png
 Result:
