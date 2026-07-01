@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDate"%>
+<%@ page import="java.time.format.DateTimeFormatter"%>
+
+<%
+LocalDate heute = LocalDate.now();
+DateTimeFormatter format =
+        DateTimeFormatter.ofPattern("dd.MM.yyyy");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +19,7 @@
 
 body{
     font-family: Arial, sans-serif;
-    background:#f2f2f2;
+    background:#eef4ff;
     margin:0;
     padding:0;
 }
@@ -68,6 +76,8 @@ footer hr{
 <div class="container">
 
 <h1>💼 CRM Formular</h1>
+
+<p>📅 Heute: <%= heute.format(format) %></p>
 
 <p>Willkommen zum CRM-Projekt</p>
 

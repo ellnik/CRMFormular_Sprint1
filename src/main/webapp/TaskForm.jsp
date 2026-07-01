@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import="java.time.LocalDate"%>
+<%@ page import="java.time.format.DateTimeFormatter"%>
+
+<%
+LocalDate heute = LocalDate.now();
+DateTimeFormatter format =
+        DateTimeFormatter.ofPattern("dd.MM.yyyy");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -88,6 +97,8 @@ h3{
 
 <h2>📝 Task bearbeiten</h2>
 
+<p>📅 Heute: <%= heute.format(format) %></p>
+
 <%
 String task = (String) request.getAttribute("task");
 %>
@@ -106,8 +117,7 @@ String task = (String) request.getAttribute("task");
 Zurück zur Task-Liste
 </button>
 
-</form>
-<form action="index.jsp">
+<form action="<%= request.getContextPath() %>/index.jsp" method="get">
 
     <button type="submit">
         🏠 Startseite

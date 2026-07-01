@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import="java.time.LocalDate"%>
+<%@ page import="java.time.format.DateTimeFormatter"%>
+
+<%
+LocalDate heute = LocalDate.now();
+DateTimeFormatter format =
+        DateTimeFormatter.ofPattern("dd.MM.yyyy");
+%>
 
 <%@ page import="bean.TaskBean"%>
 <%@ page import="bean.TaskListBean"%>
@@ -83,9 +92,12 @@ footer hr{
 
 <h2>📋 Task auswählen</h2>
 
+<p>📅 Heute: <%= heute.format(format) %></p>
+
 <%
 TaskListBean taskList = (TaskListBean) request.getAttribute("taskList");
 List<TaskBean> list = taskList.getList();
+
 %>
 
 <form action="IndexServlet" method="get">
