@@ -2,30 +2,36 @@
 
 ## Beschreibung
 
-Dieses Projekt wurde mit **Java**, **JSP**, **Servlet** und **JavaBeans** entwickelt.
+CRMFormular_Sprint1 ist eine einfache Webanwendung, die mit **Java**, **JSP**, **Servlets** und **JavaBeans** entwickelt wurde.
 
-Ziel des Projekts ist es, die Zusammenarbeit zwischen **JSP**, **Servlet**, **JavaBean** und einem **FakeDataManager** zu demonstrieren.
+Das Projekt demonstriert das Zusammenspiel zwischen den einzelnen Komponenten einer Java-Webanwendung nach dem MVC-Prinzip (Model – View – Controller).
 
-Der Benutzer startet die Anwendung über die Startseite. Anschließend wird eine Liste von Aufgaben angezeigt. Die Aufgaben werden vom `FakeDataManager` erzeugt und über eine `TaskListBean` an die JSP übergeben.
-
-Wählt der Benutzer eine Aufgabe aus, wird deren ID als **Request-Parameter** an das Servlet gesendet. Danach öffnet sich eine Formularseite zur Bearbeitung der ausgewählten Aufgabe.
+Da in diesem Sprint noch keine Datenbank verwendet wird, werden die Testdaten vom **FakeDataManager** erzeugt.
 
 ---
 
-## Verwendete Technologien
+# Projektziel
+
+Ziel des Projekts ist die Entwicklung einer kleinen CRM-Anwendung, in der Aufgaben (Tasks) angezeigt und ausgewählt werden können.
+
+Die Anwendung zeigt, wie Daten zwischen JavaBeans, Servlets und JSP-Seiten übertragen werden.
+
+---
+
+# Verwendete Technologien
 
 - [x] Java
 - [x] JSP (JavaServer Pages)
-- [x] Servlet
+- [x] Java Servlet
 - [x] JavaBeans
-- [x] HTML
-- [x] CSS
+- [x] HTML5
+- [x] CSS3
 - [x] Apache Tomcat 11
 - [x] Eclipse IDE
 
 ---
 
-## Projektstruktur
+# Projektstruktur
 
 ```
 CRMFormular_Sprint1
@@ -40,110 +46,227 @@ CRMFormular_Sprint1
 ├── servlet
 │   └── IndexServlet.java
 │
-└── webapp
+└── src/main/webapp
     ├── index.jsp
     ├── TaskList.jsp
-    └── TaskForm.jsp
+    ├── TaskForm.jsp
+    └── WEB-INF
 ```
 
 ---
 
-## Projektablauf
+# Programmablauf
 
-1. Die Startseite (`index.jsp`) wird geöffnet.
-2. Das `IndexServlet` lädt die Aufgaben vom `FakeDataManager`.
-3. Die Aufgaben werden in einer `TaskListBean` gespeichert.
-4. Die `TaskList.jsp` zeigt alle Aufgaben als Buttons an.
-5. Der Benutzer wählt eine Aufgabe aus.
-6. Die Task-ID wird als Request-Parameter an das Servlet gesendet.
-7. Das Servlet öffnet die `TaskForm.jsp`.
+### 1. Startseite
 
----
+Die Anwendung startet mit **index.jsp**.
 
-## Klassenbeschreibung
+Der Benutzer sieht eine Startseite mit einem modernen Layout und klickt auf
 
-### TaskBean
-
-Speichert die Daten einer einzelnen Aufgabe.
-
-Attribute:
-
-- id
-- titel
-
-Methoden:
-
-- Getter
-- Setter
-- Konstruktoren
+**„Task-Liste anzeigen“**.
 
 ---
 
-### TaskListBean
+### 2. Verarbeitung im Servlet
 
-Speichert eine Liste aller Aufgaben.
+Das **IndexServlet** übernimmt die Steuerung der Anwendung.
 
-Enthält:
+Es
 
-- `List<TaskBean>`
-
----
-
-### FakeDataManager
-
-Erstellt Testdaten.
-
-Zurzeit werden die Aufgaben nicht aus einer Datenbank gelesen, sondern direkt im Code erzeugt.
+- erstellt den FakeDataManager,
+- lädt alle Aufgaben,
+- speichert sie in einer TaskListBean,
+- übergibt die Daten an die JSP-Seite.
 
 ---
 
-### IndexServlet
+### 3. FakeDataManager
 
-Steuert den Ablauf der Anwendung.
+Der FakeDataManager erzeugt mehrere Testaufgaben.
 
-Aufgaben:
+Beispiel:
 
-- [x] Aufgaben laden
-- [x] Daten an JSP übergeben
-- [x] Request-Parameter verarbeiten
-- [x] Formular öffnen
+- [x] Java lernen
+- [x] JSP lernen
+- [x] Servlet lernen
+- [x] HTML lernen
 
----
-
-## Funktionen
-
-- [x] Startseite anzeigen
-- [x] Aufgabenliste anzeigen
-- [x] Aufgabe auswählen
-- [x] Task-ID an das Servlet senden
-- [x] Formular öffnen
+Später kann der FakeDataManager problemlos durch eine MySQL-Datenbank ersetzt werden.
 
 ---
 
-## Benutzeroberfläche
+### 4. Anzeige der Aufgaben
 
-Die Benutzeroberfläche wurde mit HTML und CSS gestaltet.
+Die Seite **TaskList.jsp** liest die TaskListBean aus und zeigt alle Aufgaben automatisch in einer Schleife an.
 
-Alle Seiten besitzen:
+Jede Aufgabe wird als Schaltfläche dargestellt.
 
-- ein einheitliches Design
-- blaue Schaltflächen
-- zentrierte Darstellung
+Beim Anklicken wird die Task-ID an das Servlet gesendet.
+
+---
+
+### 5. Formularseite
+
+Nach der Auswahl öffnet das Servlet die Seite **TaskForm.jsp**.
+
+Die ausgewählte Task-ID wird angezeigt.
+
+Zusätzlich besitzt die Seite:
+
+- Datum
+- Zurück-Schaltfläche
+- Startseite-Schaltfläche
 - modernes Layout
 
 ---
 
-## Zukünftige Erweiterungen
+# Klassenbeschreibung
 
-- [x] MySQL-Datenbank anbinden
-- [x] Aufgaben speichern
-- [x] Aufgaben bearbeiten
-- [x] Aufgaben löschen
-- [x] Suche hinzufügen
-- [x] Validierung der Eingaben
+## TaskBean
+
+Speichert die Daten einer einzelnen Aufgabe.
+
+Attribute
+
+1. id
+2. titel
+
+Methoden
+
+1. Getter
+2. Setter
+3. Konstruktoren
 
 ---
 
+## TaskListBean
+
+Speichert alle Aufgaben.
+
+Enthält
+
+```java
+List<TaskBean>
+```
+
+---
+
+## FakeDataManager
+
+Erstellt Testdaten.
+
+Zurzeit werden keine Daten aus einer Datenbank gelesen.
+
+---
+
+## IndexServlet
+
+Steuert den gesamten Programmablauf.
+
+Aufgaben:
+
+- [x] Request verarbeiten
+- [x] Daten laden
+- [x] JavaBeans erstellen
+- [x] Daten an JSP übergeben
+- [x] Formular öffnen
+
+---
+
+# Benutzeroberfläche
+
+Alle Seiten besitzen ein einheitliches Design.
+
+### Funktionen
+
+- modernes Kartenlayout
+- einheitliche Schrift
+- blaue Buttons
+- Hover-Effekt
+- Icons
+- aktuelles Datum
+- Anzeige der Anzahl aller Aufgaben
+- Footer mit Projektinformationen
+- responsive Anordnung der Elemente
+
+---
+
+# Aktuelle Funktionen
+
+- [x] Startseite anzeigen
+
+- [x] Aufgabenliste anzeigen
+
+- [x] Anzahl der Aufgaben anzeigen
+
+- [x] Aufgabe auswählen
+
+- [x] Task-ID übergeben
+
+- [x] Formular öffnen
+
+- [x] Navigation zwischen den Seiten
+
+- [x] Anzeige des aktuellen Datums
+
+✔ Einheitliches Layout
+
+✔ Footer auf allen Seiten
+
+---
+
+# Zukünftige Erweiterungen
+
+- MySQL-Datenbank
+- Aufgaben bearbeiten
+- Aufgaben speichern
+- Aufgaben löschen
+- Suchfunktion
+- Validierung der Eingaben
+- Login-System
+- Benutzerverwaltung
+
+---
+
+# MVC-Architektur
+
+```
+Browser
+    │
+    ▼
+index.jsp
+    │
+    ▼
+IndexServlet
+    │
+    ▼
+FakeDataManager
+    │
+    ▼
+TaskListBean
+    │
+    ▼
+TaskList.jsp
+    │
+    ▼
+Task auswählen
+    │
+    ▼
+IndexServlet
+    │
+    ▼
+TaskForm.jsp
+```
+
+---
+
+# Autor
+
+**Olena Nikolaienko**
+
+---
+
+Projekt im Rahmen der Umschulung zur Fachinformatikerin für Anwendungsentwicklung.
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_1.png
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_2.png
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_3.png
