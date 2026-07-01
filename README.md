@@ -141,3 +141,7 @@ Alle Seiten besitzen:
 - [x] Aufgaben löschen
 - [x] Suche hinzufügen
 - [x] Validierung der Eingaben
+
+Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_1.png
+Result:
+Result:
