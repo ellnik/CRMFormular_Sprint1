@@ -126,12 +126,12 @@ Zusätzlich besitzt die Seite:
 
 Speichert die Daten einer einzelnen Aufgabe.
 
-Attribute
+**Attribute**
 
 1. id
 2. titel
 
-Methoden
+**Methoden**
 
 1. Getter
 2. Setter
@@ -267,6 +267,9 @@ TaskForm.jsp
 ---
 
 Projekt im Rahmen der Umschulung zur Fachinformatikerin für Anwendungsentwicklung.
+
+---
+
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_1.png
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_2.png
 Result:https://github.com/ellnik/CRMFormular_Sprint1/blob/main/CRM%20Formular_Sprint1_3.png
